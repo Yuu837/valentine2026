@@ -47,7 +47,7 @@
 
     .hamster-img {
       /* ↓ 今の約1.8倍（50%→90%）に拡大。これが画面幅いっぱいの限界サイズです */
-      width: 90%; 
+      width: 120%; 
       max-width: 450px; /* iPhone 15 Plusの幅に合わせた最大サイズ */
       height: auto;
       margin-bottom: 3vh;
@@ -91,9 +91,41 @@
       color: #ccc;
       margin-top: 15px;
     }
+
+    /* キラキラの共通設定 */
+    .sparkle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: #ffd700; /* 金色の光 */
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff, 0 0 20px #ffd700;
+      opacity: 0;
+      z-index: 1; /* 背景とハムスターの間 */
+      pointer-events: none; /* タッチの邪魔をしない */
+    }
+
+    /* キラキラが降るアニメーション */
+    @keyframes fall {
+      0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(110vh) translateX(20px); opacity: 0; }
+    }
+
+    /* それぞれのキラキラに違う動きをさせる */
+    .s1 { left: 10%; animation: fall 7s infinite linear; }
+    .s2 { left: 30%; animation: fall 9s infinite linear 2s; }
+    .s3 { left: 70%; animation: fall 6s infinite linear 1s; }
+    .s4 { left: 90%; animation: fall 10s infinite linear 3s; }
   </style>
 </head>
 <body>
+  /* キラキラエフェクトの要素 */
+  <div class="sparkle s1"></div>
+  <div class="sparkle s2"></div>
+  <div class="sparkle s3"></div>
+  <div class="sparkle s4"></div>
 
   <img src="hamster.png" class="hamster-img" alt="Pirate Hamster">
 

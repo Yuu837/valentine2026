@@ -1,0 +1,6 @@
+venv/
+*.py
+
+/*ゴミファイル*/
+.DS_Store
+Thumbs.db
