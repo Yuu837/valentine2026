@@ -258,9 +258,9 @@
         left = Math.random() * 90; // 0〜90vw
         top = Math.random() * 90;  // 0〜90vh
 
-        // 顔周辺（横30%-70%、縦20%-45%）に入っていないかチェック
+        // 顔周辺（横30%-70%、縦15%-50%）に入っていないかチェック
         const isInFaceHorizontal = (left > 30 && left < 70);
-        const isInFaceVertical = (top > 20 && top < 45);
+        const isInFaceVertical = (top > 15 && top < 50);
 
         if (!(isInFaceHorizontal && isInFaceVertical)) {
           isOverFace = false; // 安全な場所なのでループを抜ける
@@ -274,10 +274,7 @@
       const size = (Math.random() * 80 + 60) + 'px'; // さらに大きく
       sparkle.style.width = size;
       sparkle.style.height = size;
-      
-      // 画面端からはみ出さないように配置
-      sparkle.style.left = Math.random() * 90 + 'vw'; 
-      sparkle.style.top = Math.random() * 90 + 'vh';
+
       
       // 明滅のスピードをランダムに（4秒〜8秒かけて1回光る）
       const duration = Math.random() * 4 + 3 + 's';
@@ -285,8 +282,7 @@
       
       // ★ここが重要！ z-indexを「4」に変更して、一番手前に持ってきます
       sparkle.style.zIndex = "4"; 
-    }        
-    // ランダムな遅延
+    }    // ランダムな遅延
     sparkle.style.animationDelay = Math.random() * 5 + 's';
     container.appendChild(sparkle);
   }
